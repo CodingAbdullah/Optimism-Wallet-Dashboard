@@ -17,7 +17,7 @@ const MetricsNavbar = () => {
                 }
             }
             try {
-                const response = await axios.get('http://localhost:5001/get-op-price-information', options); // Retrieve price information right after render                
+                const response = await axios.get('http://localhost:5001/op-price-lookup-information', options); // Retrieve price information right after render                
                 updatePriceInformation(response.data);
             }
             catch {

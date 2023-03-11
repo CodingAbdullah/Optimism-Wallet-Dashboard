@@ -3,6 +3,7 @@ const router = express.Router(); // Adding router
 const OpPriceController = require("../controllers/OpPriceController");
 
 // Adding routes for information
-router.get("/get-op-price-information", OpPriceController.getOptimismPriceInformation);
+router.get("/op-price-lookup-information", OpPriceController.getOptimismPriceInformation);
+router.post("/get-op-price-historical-information", OpPriceController.getOptimismHistoricalPriceInformation);
 
 module.exports = router;
