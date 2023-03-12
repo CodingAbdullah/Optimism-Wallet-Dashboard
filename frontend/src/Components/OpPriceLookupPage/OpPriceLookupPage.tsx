@@ -60,12 +60,10 @@ const OpPriceLookupPage = () => {
                     'content-type' : 'application/json'
                 }
             }
-            
-            try {
+
                 // Set up request and retrive information related to price and organize state
                 //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
                 //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
-
                 axios.post('http://localhost:5001/get-op-price-historical-information', options)
                 .then(response => {
                     axios.get("http://localhost:5001/op-price-lookup-information")
@@ -95,12 +93,15 @@ const OpPriceLookupPage = () => {
                         updateOpHistoricalInformation(historicalInformation);
                         updateOpPriceInformation(priceResponse.data);
                     })
+                    .catch(() => {
+                        updateOpHistoricalInformation(undefined);
+                        updateOpPriceInformation(undefined);
+                    });
+                })
+                .catch(() => {
+                    updateOpHistoricalInformation(undefined);
+                    updateOpPriceInformation(undefined);
                 });
-            }
-            catch {
-                updateOpHistoricalInformation(undefined);
-                updateOpPriceInformation(undefined);
-            }
         }
         // Run function upon component mount
         fetchCoins();
@@ -118,10 +119,9 @@ const OpPriceLookupPage = () => {
                 }
             }
             
-            try {
-                // Set up request and retrive information related to price and organize state
-              //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
-              //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
+            // Set up request and retrive information related to price and organize state
+            //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
+            //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
 
                 axios.post('http://localhost:5001/get-op-price-historical-information', options)
                 .then(response => {
@@ -152,12 +152,15 @@ const OpPriceLookupPage = () => {
                         updateOpHistoricalInformation(historicalInformation);
                         updateOpPriceInformation(priceResponse.data);
                     })
+                    .catch(() => {
+                        updateOpHistoricalInformation(undefined);
+                        updateOpPriceInformation(undefined);
+                    });
+                })
+                .catch(() => {
+                    updateOpHistoricalInformation(undefined);
+                    updateOpPriceInformation(undefined);
                 });
-            }
-            catch {
-                updateOpHistoricalInformation(undefined);
-                updateOpPriceInformation(undefined);
-            }
         }
         // Run function upon component mount
         fetchCoins();
