@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import { GasPriceType }  from '../../types/GasPriceType';
+import { GasPriceType }  from '../../utils/types/GasPriceType';
 
 const GasPricePage: FC = () => {
     // Adding hooks and state
@@ -18,7 +18,7 @@ const GasPricePage: FC = () => {
  
     // Using parent-child component hierarchy, pass down state information for display and leaner code
 
-    if (gasState === undefined) {
+    if ( gasState === undefined ) {
         return <div>Loading..</div>
     }
     else {
@@ -48,7 +48,7 @@ const GasPricePage: FC = () => {
                             { new Date().toISOString().split("T")[0] + " " + new Date().toISOString().split("T")[1].split(".")[0] + " - GMT" }
                         </p>
                         <div>
-                            <button style={{ marginTop: '2rem', marginBottom: '1rem' }} onClick={() => navigate("/")} className='btn btn-success'>Go Home</button>
+                            <button style={{ marginTop: '2rem', marginBottom: '1rem' }} onClick={ () => navigate("/") } className='btn btn-success'>Go Home</button>
                         </div>
                     </div>
                 </main>

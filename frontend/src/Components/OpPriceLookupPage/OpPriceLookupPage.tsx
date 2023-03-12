@@ -14,8 +14,8 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { PriceHistoricalInformationType } from '../../types/PriceHistoricalInformationType';
-import { PriceType } from '../../types/PriceType';
+import { PriceHistoricalInformationType } from '../../utils/types/PriceHistoricalInformationType';
+import { PriceType } from '../../utils/types/PriceType';
 
 ChartJS.register(
   CategoryScale,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { PriceType } from '../../types/PriceType';
+import { PriceType } from '../../utils/types/PriceType';
 
 const MetricsNavbar = () => {
     const [priceInformation, updatePriceInformation] = useState<PriceType>();
