@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const ArbWalletController = require("../controller/ArbWalletController");
+const OpWalletController = require("../controllers/OpWalletController");
 
 // Add routes here
-router.post("/op-transactions", ArbWalletController.getWalletTransactions);
-router.post("/op-internal-transactions", ArbWalletController.getInternalWalletTransactions);
-router.post("/op-wallet-balance", ArbWalletController.getWalletBalance);
+router.post("/op-transactions", OpWalletController.getWalletTransactions);
+router.post("/op-internal-transactions", OpWalletController.getInternalWalletTransactions);
+router.post("/op-wallet-balance", OpWalletController.getWalletBalance);
 
 module.exports = router;
