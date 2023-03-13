@@ -1,10 +1,13 @@
 // Adding interfaces to represent complex types
 export interface ERC20HoldingType {
-    token_address: string,
-    name: string,
-    symbol: string,
-    logo?: string,
-    thumbnail?: string,
-    decimals: number,
-    balance: string
+    id: number,
+    jsonrpc: string,
+    result: {
+        address: string,
+        tokenBalances: {
+            contractAddress: string,
+            tokenBalance: string,
+            error: string
+        }[]
+    }
 }
