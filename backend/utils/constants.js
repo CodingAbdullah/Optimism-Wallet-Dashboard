@@ -2,5 +2,5 @@
 exports.NETWORK_MAPPER = {
     COINGECKO_URL : "https://api.coingecko.com/api/v3",
     OPTIMISM_URL : "https://api-optimistic.etherscan.io/api",
-    MORALIS_URL : "https://deep-index.moralis.io/api/v2/"   
+    ALCHEMY_URL : "https://opt-mainnet.g.alchemy.com"   
 }
