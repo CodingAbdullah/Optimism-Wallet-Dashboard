@@ -46,7 +46,7 @@ const ERC721TokenHoldingsPage: FC = () => {
             }
 
             // Make calls to fetch ERC721 holdings and transfers of a particular wallet on the Arbitrum network
-            axios.post('http://localhost:5001/get-op-erc721-holdings', options)
+            axios.post('http://localhost:5001/op-erc721-holdings', options)
             .then(response => {
                 // Check to see if length of holdings is equal to 0, if not populate state
                 if (response.data.holdings.result.length === 0) {
@@ -62,7 +62,7 @@ const ERC721TokenHoldingsPage: FC = () => {
                 updateEmptyAlert(false);
             })
 
-            axios.post('http://localhost:5001/get-op-erc721-transfers', options)
+            axios.post('http://localhost:5001/op-erc721-transfers', options)
             .then(response => {
                 // Check to see if length of holdings is equal to 0, if not populate state
                 if (response.data.transfers.result.length === 0) {

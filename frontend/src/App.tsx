@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/erc20-token-holdings" element={<ERC20TokenHoldingsPage />}></Route>
           <Route path="/erc721-token-holdings" element={<ERC721TokenHoldingsPage />}></Route>,
           <Route path="/gas-tracker" element={<GasPricePage />}></Route>
-          <Route path="op-price-lookup" element={<OpPriceLookupPage />}></Route>
+          <Route path="/op-price-lookup" element={<OpPriceLookupPage />}></Route>
           <Route path="/wallet-analytics" element={<WalletTokenAnalyticsPage />}></Route>
           <Route path="/wallet-analytics-result" element={<WalletAnalyticsResultPage />}></Route>
           <Route path="/" element={<HomePage />}></Route>

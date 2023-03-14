@@ -4,6 +4,6 @@ const OpPriceController = require("../controllers/OpPriceController");
 
 // Adding routes for information
 router.get("/op-price-lookup-information", OpPriceController.getOptimismPriceInformation);
-router.post("/get-op-price-historical-information", OpPriceController.getOptimismHistoricalPriceInformation);
+router.post("/op-price-historical-information", OpPriceController.getOptimismHistoricalPriceInformation);
 
 module.exports = router;

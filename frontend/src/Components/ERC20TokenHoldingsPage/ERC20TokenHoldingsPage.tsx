@@ -45,7 +45,7 @@ const ERC20TokenHoldingsPage: FC = () => {
             updateAlert(false);
 
             // Make requests for ERC20 holdings and transfers
-            axios.post('http://localhost:5001/get-op-erc20-holdings', options)
+            axios.post('http://localhost:5001/op-erc20-holdings', options)
             .then(response => {
                 if (response.data.holdings.length === 0) {
                     updateEmptyAlert(true);
@@ -61,7 +61,7 @@ const ERC20TokenHoldingsPage: FC = () => {
                 updateEmptyAlert(false);
             })
 
-            axios.post('http://localhost:5001/op-arb-erc20-transfers', options)
+            axios.post('http://localhost:5001/op-op-erc20-transfers', options)
             .then(response => {
                 if (response.data.transfers.result.length === 0) {
                     updateEmptyAlert(true);

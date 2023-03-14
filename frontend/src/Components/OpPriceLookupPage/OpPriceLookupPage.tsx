@@ -64,7 +64,7 @@ const OpPriceLookupPage = () => {
                 // Set up request and retrive information related to price and organize state
                 //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
                 //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
-                axios.post('http://localhost:5001/get-op-price-historical-information', options)
+                axios.post('http://localhost:5001/op-price-historical-information', options)
                 .then(response => {
                     axios.get("http://localhost:5001/op-price-lookup-information")
                     .then(priceResponse => {                            
@@ -123,7 +123,7 @@ const OpPriceLookupPage = () => {
             //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
             //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
 
-                axios.post('http://localhost:5001/get-op-price-historical-information', options)
+                axios.post('http://localhost:5001/op-price-historical-information', options)
                 .then(response => {
                     axios.get("http://localhost:5001/op-price-lookup-information")
                     .then(priceResponse => {                            
