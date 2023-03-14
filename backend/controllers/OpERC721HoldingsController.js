@@ -5,6 +5,8 @@ const axios = require("axios");
 exports.getERC721Holdings = (req, res) => { 
     const address = JSON.parse(req.body.body).walletAddress;
 
+    console.log(address);
+    
     axios.get(ALCHEMY_URL + '/nft/v2/' + process.env.ALCHEMY_API_KEY + "/getNFTS?owner=" + address + "&withMetadata=false&pageSize=100")
     .then(response => {
         console.log(response);

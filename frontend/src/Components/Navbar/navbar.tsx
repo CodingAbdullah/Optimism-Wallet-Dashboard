@@ -25,9 +25,6 @@ const Navbar: React.FC = () => {
                                 <a className="nav-link" style={{ color: 'white' }} href="/erc721-token-holdings">ERC721 Token Holdings</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" style={{ color: 'white' }} href="/erc721-token-lookups">ERC721 Token Lookups</a>
-                            </li>
-                            <li className="nav-item">
                                 <a className="nav-link" style={{ color: 'white' }} href="/gas-tracker">Gas Station</a>
                             </li>
                             <li className="nav-item">

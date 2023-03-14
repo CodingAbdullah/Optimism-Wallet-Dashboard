@@ -6,7 +6,6 @@ const OpGasPriceRoute = require("../backend/routes/OpGasRoute");
 const OpWalletRoute = require("../backend/routes/OpWalletRoute");
 const OpERC20HoldingsRoute = require('../backend/routes/OpERC20HoldingsRoute');
 const OpERC721HoldingsRoute = require("../backend/routes/OpERC721HoldingsRoute");
-const OpERC721LookupsRoute = require("../backend/routes/OpERC721LookupsRoute");
 
 const app = express();
 
@@ -25,4 +24,3 @@ app.use("/", OpGasPriceRoute);
 app.use("/", OpWalletRoute);
 app.use("/", OpERC20HoldingsRoute);
 app.use("/", OpERC721HoldingsRoute);
-app.use("/", OpERC721LookupsRoute);
