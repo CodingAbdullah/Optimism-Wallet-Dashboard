@@ -44,7 +44,7 @@ Here are links to the available API resources used in this project. NOTE: Opense
 
 [Alchemy](https://docs.alchemy.com/reference/api-overview)
 [Coingecko](https://www.coingecko.com)
-[Optimism Etherscan](https://optimistic.etherscan.io/)
+[Optimism-Etherscan](https://optimistic.etherscan.io/)
 
 <br />
 
