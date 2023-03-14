@@ -1,5 +1,5 @@
 require("dotenv").config({ path: '../.env' });
-const ALCHEMY_URL = require("../utils/constants").NETWORK_MAPPER.ALCHEMY_URL;
+const ALCHEMY_URL = require("../utils/constants").NETWORK_MAPPER.alchemy_url;
 const axios = require("axios");
 
 exports.getERC721Holdings = (req, res) => { 

@@ -1,6 +1,6 @@
 require("dotenv").config({ path: '../.env' });
 const axios = require('axios');
-const OPTIMISM_URL = require("../utils/constants").NETWORK_MAPPER.OPTIMISM_URL;
+const OPTIMISM_URL = require("../utils/constants").NETWORK_MAPPER.optimism_url;
 const hex2dec = require("hex2dec");
 
 // Optimism endpoint

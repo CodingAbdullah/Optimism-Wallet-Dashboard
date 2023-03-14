@@ -8,9 +8,9 @@ exports.getOptimismPriceInformation = (req, res) => {
     const API_ENDPOINT = "/simple/price";
     const OPTIMISM_GAS_URL =  "?module=proxy&action=eth_gasPrice&apikey=" + process.env.OPTIMISM_API_KEY
 
-    axios.get(NETWORK_MAPPER.COINGECKO_URL + API_ENDPOINT + QUERY_STRING_OPTIMISM)
+    axios.get(NETWORK_MAPPER.coingecko_url + API_ENDPOINT + QUERY_STRING_OPTIMISM)
     .then(response => {
-        axios.get(NETWORK_MAPPER.OPTIMISM_URL + OPTIMISM_GAS_URL)
+        axios.get(NETWORK_MAPPER.optimism_url + OPTIMISM_GAS_URL)
         .then(gasInfo => {
             let gasValueInDec = (hex2dec.hexToDec(gasInfo.data.result))/1000000000; // Value given in WEI Hex value so, conversion to Dec value and to WEI is done
             gasInfo.data.result = gasValueInDec;

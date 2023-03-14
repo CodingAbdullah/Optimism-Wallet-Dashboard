@@ -24,5 +24,5 @@ app.use("/", OpPriceRoute);
 app.use("/", OpGasPriceRoute);
 app.use("/", OpWalletRoute);
 app.use("/", OpERC20HoldingsRoute);
-app.use("/", OpERC721HoldingsRoute)
-app.use("/", OpERC721LookupsRoute)
+app.use("/", OpERC721HoldingsRoute);
+app.use("/", OpERC721LookupsRoute);

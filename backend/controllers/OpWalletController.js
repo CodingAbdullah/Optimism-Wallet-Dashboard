@@ -1,7 +1,7 @@
 require("dotenv").config({ path: '../.env' });
 const axios  = require("axios");
-const OPTIMISM_URL = require("../utils/constants").NETWORK_MAPPER.OPTIMISM_URL;
-const COINGECKO_URL = require("../utils/constants").NETWORK_MAPPER.COINGECKO_URL;
+const OPTIMISM_URL = require("../utils/constants").NETWORK_MAPPER.optimism_url;
+const COINGECKO_URL = require("../utils/constants").NETWORK_MAPPER.coingecko_url;
 
 exports.getWalletTransactions = (req, res) => {
     const { walletAddress } = JSON.parse(req.body.body);
