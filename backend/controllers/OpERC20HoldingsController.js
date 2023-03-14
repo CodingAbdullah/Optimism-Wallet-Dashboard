@@ -6,11 +6,12 @@ exports.getERC20Holdings = (req, res) => {
 
     // Replace with your Alchemy API key:
     const baseURL = 'https://opt-mainnet.g.alchemy.com/v2/' + process.env.ALCHEMY_API_KEY;
+    
     var data = JSON.stringify({
         "jsonrpc": "2.0",
         "method": "alchemy_getTokenBalances",
         "params": [
-            `${walletAddress}`,
+            `${walletAddress}`
         ],
         "id": 42
     });

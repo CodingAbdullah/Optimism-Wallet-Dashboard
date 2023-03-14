@@ -7,9 +7,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `AWS Amplify`
 
-**The link to the deployed site will be posted here:**. Note that the backend endpoints will be served using the **same** EC2 instance used to serve the backend endpoints for the main **Dashboard** project.
+**The link to the deployed site will be posted here.** Note that the backend endpoints will be served using the **same** EC2 instance used to serve the backend endpoints for the main **Dashboard** project.
 
 This is done for cost-effectiveness and efficiency. One server holding all the endpoints.
+
+<br />
+
+### `Features`
+**Most of the features supported on the Arbitrum Network are also supported here as well, except for ERC-721 Lookups.**
 
 <br />
 
@@ -38,11 +43,10 @@ Here are links to the available API resources used in this project. NOTE: Opense
 
 
 [Alchemy](https://docs.alchemy.com/reference/api-overview)
-[Arbiscan](https://arbiscan.io/apis)
-[Moralis](https://docs.moralis.io/web3-data-api/reference/overview)
+[Coingecko](https://www.coingecko.com)
+[Optimism Etherscan](https://optimistic.etherscan.io/)
 
 <br />
-
 
 
 ## Front End Resources
