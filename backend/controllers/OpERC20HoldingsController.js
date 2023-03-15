@@ -1,31 +1,28 @@
 require("dotenv").config({ path: '../.env' });
 const axios = require("axios");
+const ALCHEMY_URL = require("../utils/constants").NETWORK_MAPPER.alchemy_url;
 
 exports.getERC20Holdings = (req, res) => {
-    const { walletAddress }  = JSON.parse(req.body.body);
+    const { walletAddress } = JSON.parse(req.body.body);
 
-    // Replace with your Alchemy API key:
-    const baseURL = 'https://opt-mainnet.g.alchemy.com/v2/' + process.env.ALCHEMY_API_KEY;
-    
-    var data = JSON.stringify({
-        "jsonrpc": "2.0",
-        "method": "alchemy_getTokenBalances",
-        "params": [
-            `${walletAddress}`
-        ],
-        "id": 42
-    });
-
-    var config = {
-        method: 'post',
-        url: baseURL,
+    // Pass in options making sure of the axios library and the Alchemy endpoint
+    const options = {
+        method: 'POST',
+        url: ALCHEMY_URL + '/v2/' + process.env.ALCHEMY_API_KEY,
         headers: {
-            'Content-Type': 'application/json'
+            accept: 'application/json', 
+            'content-type': 'application/json'
         },
-        data : data
+        data: {
+            id: 42,
+            jsonrpc: '2.0',
+            method: 'alchemy_getTokenBalances',
+            params: [walletAddress]
+        }
     };
 
-    axios(config)
+    // POST request using Axios
+    axios.request(options)
     .then(response => {
         res.status(200).json({
             holdings: response.data
@@ -39,29 +36,36 @@ exports.getERC20Holdings = (req, res) => {
 }
 
 exports.getERC20Transfers = (req, res) => {
-    const address = JSON.parse(req.body.body).walletAddress;
+    const { walletAddress } = JSON.parse(req.body.body);
 
+    // Pass in options making sure of the axios library and the Alchemy endpoint
     const options = {
         method: 'POST',
-        url: 'https://opt-mainnet.g.alchemy.com/v2/' + process.env.ALCHEMY_API_KEY,
-        headers: { accept: 'application/json', 'content-type': 'application/json' },
+        url: ALCHEMY_URL + '/v2/' + process.env.ALCHEMY_API_KEY,
+        headers: {
+            accept: 'application/json', 
+            'content-type': 'application/json'
+        },
         data: {
-          params: [
-            {
-              fromBlock: '0x0',
-              toBlock: 'latest',
-              category: ['erc20'],
-              withMetadata: false,
-              excludeZeroValue: true,
-              maxCount: '0x3e8',
-              fromAddress: address,
-              order: 'desc'
-            }
-          ]
+            id: 42,
+            jsonrpc: '2.0',
+            method: 'alchemy_getAssetTransfers',
+            params: [
+                {
+                    fromBlock: '0x0',
+                    toBlock: 'latest',
+                    toAddress: walletAddress,
+                    category: ['erc20'],
+                    withMetadata: false,
+                    excludeZeroValue: true,
+                    maxCount: '0x3e8'
+                }
+            ]
         }
     };
-      
-    axios.post(options)
+
+    // POST request using Axios 
+    axios.request(options)
     .then(response => {
         res.status(200).json({
             transfers: response.data

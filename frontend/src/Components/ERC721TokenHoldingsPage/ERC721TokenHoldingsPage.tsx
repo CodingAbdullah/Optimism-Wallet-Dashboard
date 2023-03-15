@@ -49,34 +49,34 @@ const ERC721TokenHoldingsPage: FC = () => {
             axios.post('http://localhost:5001/op-erc721-holdings', options)
             .then(response => {
                 // Check to see if length of holdings is equal to 0, if not populate state
-                if (response.data.holdings.result.length === 0) {
+                if (response.data.holdings.ownedNfts.length === 0) {
                     updateEmptyAlert(true);
                 }
                 else {
                     updateEmptyAlert(false);
-                    updateERC721HoldingData(response.data);
+                    updateERC721HoldingData(response.data.holdings);
                 }
             })
             .catch(() => {
                 updateAlert(true);
                 updateEmptyAlert(false);
-            })
+            });
 
             axios.post('http://localhost:5001/op-erc721-transfers', options)
             .then(response => {
                 // Check to see if length of holdings is equal to 0, if not populate state
-                if (response.data.transfers.result.length === 0) {
+                if (response.data.transfers.result.transfers.length === 0) {
                     updateEmptyAlert(true);
                 }
                 else {
                     updateEmptyAlert(false);
-                    updateERC721TransferData(response.data);
+                    updateERC721TransferData(response.data.transfers);
                 }
             })
             .catch(() => {
                 updateAlert(true);
                 updateEmptyAlert(false);
-            })
+            });
         }
     }
     

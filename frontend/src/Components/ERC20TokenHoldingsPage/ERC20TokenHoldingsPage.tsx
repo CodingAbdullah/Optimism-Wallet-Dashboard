@@ -47,7 +47,8 @@ const ERC20TokenHoldingsPage: FC = () => {
             // Make requests for ERC20 holdings and transfers
             axios.post('http://localhost:5001/op-erc20-holdings', options)
             .then(response => {
-                if (response.data.holdings.length === 0) {
+                if (response.data.holdings.result.tokenBalances[0].contractAddress === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' 
+                    && response.data.holdings.result.tokenBalances[0].contractAddress === '0x0000000000000000000000000000000000000000000000000000000000000000') {
                     updateEmptyAlert(true);
                 }
                 else {
@@ -59,11 +60,11 @@ const ERC20TokenHoldingsPage: FC = () => {
             .catch(() => {
                 updateAlert(true);
                 updateEmptyAlert(false);
-            })
+            });
 
-            axios.post('http://localhost:5001/op-op-erc20-transfers', options)
+            axios.post('http://localhost:5001/op-erc20-transfers', options)
             .then(response => {
-                if (response.data.transfers.result.length === 0) {
+                if (response.data.transfers.result.transfers.length === 0) {
                     updateEmptyAlert(true);
                 }
                 else {

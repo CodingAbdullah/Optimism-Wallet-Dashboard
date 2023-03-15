@@ -1,18 +1,25 @@
 // Adding interfaces to represent complex types
 export interface ERC20TransferType {
-    total: number,
-    page: number,
-    page_size: number,
+    jsonrpc: string,
+    id: number,
     result: {
-        transaction_hash: string,
-        address: string, // Address of token
-        block_timestamp: string,
-        block_number: string,
-        block_hash: string,
-        to_address: string,
-        from_address: string,
-        value: string, // Calculated in wei
-        transaction_index: number,
-        log_index: number
-    }[]
+        transfers: {
+            blockNum: string,
+            uniqueId: string,
+            hash: string,
+            from: string,
+            to: string,
+            value: string,
+            erc721TokenId: string,
+            erc1155Metadata: string,
+            tokenId: string,
+            asset: string,
+            category: string,
+            rawContract: {
+                value: string,
+                address: string,
+                decimal: string
+            }
+        }[]
+    }
 }

@@ -3,46 +3,64 @@ const ALCHEMY_URL = require("../utils/constants").NETWORK_MAPPER.alchemy_url;
 const axios = require("axios");
 
 exports.getERC721Holdings = (req, res) => { 
-    const address = JSON.parse(req.body.body).walletAddress;
+    const { walletAddress } = JSON.parse(req.body.body);
 
-    console.log(address);
-    
-    axios.get(ALCHEMY_URL + '/nft/v2/' + process.env.ALCHEMY_API_KEY + "/getNFTS?owner=" + address + "&withMetadata=false&pageSize=100")
+    // Pass in options making sure of the axios library and the Alchemy endpoint
+    const options = {
+        method: 'GET',
+        url: ALCHEMY_URL + 'nft/v2/' + process.env.ALCHEMY_API_KEY + '/getNFTs?owner=' + walletAddress + '&withMetadata=true&pageSize=100',
+        headers: {
+            accept: 'application/json',
+            'content-type': 'application/json'
+        }
+    };
+
+    // POST request using Axios 
+    axios.request(options)
     .then(response => {
-        console.log(response);
+        res.status(200).json({
+            holdings: response.data
+        });
     })
     .catch(err => {
-        console.log(err);
         res.status(400).json({
             error: err
         });
     });
+
 }  
 
 exports.getERC721Transfers = (req, res) => {
-    const address = JSON.parse(req.body.body).walletAddress;
+    const { walletAddress } = JSON.parse(req.body.body);
 
+    // Pass in options making sure of the axios library and the Alchemy endpoint
     const options = {
         method: 'POST',
-        url: 'https://opt-mainnet.g.alchemy.com/v2/' + process.env.ALCHEMY_API_KEY,
-        headers: { accept: 'application/json', 'content-type': 'application/json' },
+        url: ALCHEMY_URL + '/v2/' + process.env.ALCHEMY_API_KEY,
+        headers: {
+            accept: 'application/json', 
+            'content-type': 'application/json'
+        },
         data: {
-          params: [
-            {
-              fromBlock: '0x0',
-              toBlock: 'latest',
-              category: ['erc721'],
-              withMetadata: false,
-              excludeZeroValue: true,
-              maxCount: '0x3e8',
-              fromAddress: address,
-              order: 'desc'
-            }
-          ]
+            id: 42,
+            jsonrpc: '2.0',
+            method: 'alchemy_getAssetTransfers',
+            params: [
+                {
+                    fromBlock: '0x0',
+                    toBlock: 'latest',
+                    toAddress: walletAddress,
+                    category: ['erc721'],
+                    withMetadata: false,
+                    excludeZeroValue: true,
+                    maxCount: '0x3e8'
+                }
+            ]
         }
     };
-      
-    axios.post(options)
+
+    // POST request using Axios 
+    axios.request(options)
     .then(response => {
         res.status(200).json({
             transfers: response.data
