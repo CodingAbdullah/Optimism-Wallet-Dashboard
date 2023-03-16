@@ -16,14 +16,14 @@ const ERC721HoldingsInfoTable = (props: { data: ERC721HoldingType }) => {
                     </tr>
                 </thead>
                 <tbody style={{ border: '1px solid black' }}>
-                    { data.holdings.result.map((record, key) => {
+                    { data.ownedNfts.map((record, key) => {
                         return (
                                 <tr style={{ border: '1px solid black' }}>
-                                    <td style={{ border: '1px solid black', fontSize: '11px', padding: '0.5rem' }}>{ record.name }</td>
-                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.token_address }</td>
-                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.token_id }</td>
-                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.symbol }</td>
-                                    <td style={{ border: '1px solid black', fontSize: '11px' }}><a href={ "https://opensea.io/assets/arbitrum/" + record.token_address + "/" + record.token_id } target="_blank" rel="noreferrer">ERC721 Link</a></td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px', padding: '0.5rem' }}>{ record.contractMetadata.name }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.contract.address }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.id.tokenId }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.contractMetadata.symbol }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}><a href={ "https://opensea.io/assets/optimism/" + record.contract.address + "/" + record.id.tokenId } target="_blank" rel="noreferrer">ERC721 Link</a></td>
                                 </tr>
                         )
                     })}

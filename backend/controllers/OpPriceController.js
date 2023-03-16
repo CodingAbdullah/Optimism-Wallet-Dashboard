@@ -1,5 +1,5 @@
 require("dotenv").config({ path: '../.env' });
-const { NETWORK_MAPPER } = require("../utils/constants");
+const COINGECKO_URL = require("../utils/constants").NETWORK_MAPPER.coingecko_url;
 const axios = require('axios');
 const hex2dec = require('hex2dec');
 
@@ -8,8 +8,12 @@ exports.getOptimismPriceInformation = (req, res) => {
     const API_ENDPOINT = "/simple/price";
     const OPTIMISM_GAS_URL =  "?module=proxy&action=eth_gasPrice&apikey=" + process.env.OPTIMISM_API_KEY
 
-    axios.get(NETWORK_MAPPER.coingecko_url + API_ENDPOINT + QUERY_STRING_OPTIMISM)
+    axios.get(COINGECKO_URL + API_ENDPOINT + QUERY_STRING_OPTIMISM)
     .then(response => {
+
+        const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
+        delay();
+
         axios.get(NETWORK_MAPPER.optimism_url + OPTIMISM_GAS_URL)
         .then(gasInfo => {
             let gasValueInDec = (hex2dec.hexToDec(gasInfo.data.result))/1000000000; // Value given in WEI Hex value so, conversion to Dec value and to WEI is done
@@ -45,14 +49,19 @@ exports.getOptimismHistoricalPriceInformation = (req, res) => {
     const QUERY_STRING_PRICES = "?vs_currency=usd&days=" + day; // Default selection for now.
     const PRICE_ENDPOINT = "/coins/optimism/market_chart" + QUERY_STRING_PRICES + "&interval=" + duration;
 
+    const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
+    delay();
+
     // Gather data related to token price, 24 hr change and the price range selected by user    
-    axios.get(NETWORK_MAPPER.COINGECKO_URL + PRICE_ENDPOINT)
+    axios.get(COINGECKO_URL + PRICE_ENDPOINT)
     .then(historicalInformation => {
+        console.log(historicalInformation);
         res.status(200).json({
             historicalPrice: historicalInformation.data
         });
     })
     .catch(err => {
+        console.log(err);
         res.status(400).json({
             error: err
         });

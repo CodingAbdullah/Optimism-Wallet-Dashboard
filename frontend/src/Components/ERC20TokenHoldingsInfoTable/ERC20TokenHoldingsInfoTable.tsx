@@ -1,7 +1,7 @@
 import { ERC20HoldingType } from "../../utils/types/ERC20HoldingType";
 
 // Pass in the array of objects of type ERC20Holding to the data properties of the prop object
-const ERC20TokenHoldingsInfoTable = (props : { data: ERC20HoldingType[] }) => {
+const ERC20TokenHoldingsInfoTable = (props : { data: ERC20HoldingType }) => {
     const { data } = props;
 
     return (
@@ -9,28 +9,19 @@ const ERC20TokenHoldingsInfoTable = (props : { data: ERC20HoldingType[] }) => {
             <table style={{ border: '1px solid black' }}>
                 <thead style={{ border: '1px solid black' }}>
                     <tr style={{ border: '1px solid black' }}>
-                        <th style={{ border: '1px solid black' }} scope="col">Name</th>
-                        <th style={{ border: '1px solid black' }} scope="col">Token Address</th>
-                        <th style={{ border: '1px solid black' }} scope="col">Symbol</th>
-                        <th style={{ border: '1px solid black' }} scope="col">Balance</th>
+                        <th style={{ border: '1px solid black' }} scope="col">Contract Address</th>
+                        <th style={{ border: '1px solid black' }} scope="col">Token Balance</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { data.map((record, key) => {
-
-                        if (record.name === null){ // Conditional Rendering.. no null names to be displayed
-                            return null;
-                        }
-                        else {
+                    { 
+                        data.result.tokenBalances.map((record, key) => {
                             return (
                                 <tr style={{ border: '1px solid black' }}>
-                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.name }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.token_address }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.symbol }</td>
-                                    <td style={{ border: '1px solid black' }}>{ Number(record.balance)/1000000000000000000 }</td>
+                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.contractAddress }</td>
+                                    <td style={{ border: '1px solid black' }}>{ record.tokenBalance }</td>
                                 </tr>
                             )
-                        }
                     })}
                 </tbody>
             </table>

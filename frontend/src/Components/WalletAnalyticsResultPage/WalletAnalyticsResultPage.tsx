@@ -85,7 +85,7 @@ const WalletAnalyticsResultPage: FC = () => {
                             emptyAlert ? <Alert type="warning" /> : 
                             <>
                                 {
-                                    walletTransactionState === undefined ||  walletInternalTransactionState === undefined || walletBalanceInformationState == undefined || emptyAlert ? null :
+                                    walletTransactionState === undefined ||  walletInternalTransactionState === undefined || walletBalanceInformationState === undefined || emptyAlert ? null :
                                         <>     
                                             <WalletBalanceSection data={ walletBalanceInformationState } address={ address! } />
                                             <main style={{ marginTop: '5rem' }} role="main">

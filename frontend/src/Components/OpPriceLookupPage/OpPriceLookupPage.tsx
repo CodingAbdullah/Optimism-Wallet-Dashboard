@@ -62,10 +62,14 @@ const OpPriceLookupPage = () => {
             }
 
                 // Set up request and retrive information related to price and organize state
-                //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
-                //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
+                // const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
+                // const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
                 axios.post('http://localhost:5001/op-price-historical-information', options)
                 .then(response => {
+
+                    const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
+                    delay();
+
                     axios.get("http://localhost:5001/op-price-lookup-information")
                     .then(priceResponse => {                            
                         // Format dates
@@ -120,11 +124,15 @@ const OpPriceLookupPage = () => {
             }
             
             // Set up request and retrive information related to price and organize state
-            //  const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
-            //  const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
+            // const response = await axios.post('http://localhost:5001/get-op-price-historical-information', options);
+            // const priceResponse = await axios.get('http://localhost:5001/op-price-lookup-information');
 
                 axios.post('http://localhost:5001/op-price-historical-information', options)
                 .then(response => {
+
+                    const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
+                    delay();
+
                     axios.get("http://localhost:5001/op-price-lookup-information")
                     .then(priceResponse => {                            
                         // Format dates

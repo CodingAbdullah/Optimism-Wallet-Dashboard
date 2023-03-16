@@ -13,7 +13,7 @@ const ERC20TokenHoldingsPage: FC = () => {
     const address = useRef<HTMLInputElement>(null);
     const [alert, updateAlert] = useState<boolean>(false);
     const [emptyAlert, updateEmptyAlert] = useState<boolean>(false);
-    const [tokenHoldings, updateTokenHoldings] = useState<ERC20HoldingType[]>(); // An array of these types must be stored in this state
+    const [tokenHoldings, updateTokenHoldings] = useState<ERC20HoldingType>(); // An array of these types must be stored in this state
     const [tokenTransfers, updateTokenTransfers] = useState<ERC20TransferType>(); 
 
     // Adding Handlers

@@ -9,7 +9,7 @@ const ERC720TransfersInfoTable = (props : { data : ERC20TransferType, address: s
             <table style={{ border: '1px solid black' }}>
                 <thead style={{ border: '1px solid black' }}>
                 <tr style={{ border: '1px solid black' }}>
-                    <th style={{ border: '1px solid black' }} scope="col">Date</th>
+                    <th style={{ border: '1px solid black' }} scope="col">Hash</th>
                     <th style={{ border: '1px solid black' }} scope="col">From</th>
                     <th style={{ border: '1px solid black' }} scope="col">To</th>
                     { address !== null ? <th style={{ border: '1px solid black' }} scope="col">Direction</th> : null }                   
@@ -18,16 +18,15 @@ const ERC720TransfersInfoTable = (props : { data : ERC20TransferType, address: s
                 </thead>
                 <tbody>
                     { 
-                        data.result.map((record, key) => {
+                        data.result.transfers.map((record, key) => {
                             // Display information, format date display
-                            let recordedValue = Number(record.value)/1000000000000000000;
-                            let badgeDisplay = address.toLowerCase() === record.to_address;
-
+                            let badgeDisplay = address.toLowerCase() === record.to;
+                            
                             return (
                                 <tr style={{ border: '1px solid black' }}>
-                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.block_timestamp.split("T")[0] }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.from_address }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.to_address }</td>
+                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.hash }</td>
+                                    <td style={{ border: '1px solid black' }}>{ record.from }</td>
+                                    <td style={{ border: '1px solid black' }}>{ record.to }</td>
                                     { 
                                         address !== null ? 
                                             <td style={{ border: '1px solid black', fontSize: '11px' }}>
@@ -35,7 +34,7 @@ const ERC720TransfersInfoTable = (props : { data : ERC20TransferType, address: s
                                             </td> : null 
                                     }
                                     <td style={{ border: '1px solid black' }}>
-                                        { recordedValue }
+                                        { record.value }
                                     </td>
                                 </tr>
                             )
