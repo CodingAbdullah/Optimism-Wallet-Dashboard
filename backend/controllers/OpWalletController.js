@@ -41,7 +41,7 @@ exports.getInternalWalletTransactions = (req, res) => {
 
 exports.getWalletBalance = (req, res) => {
     const walletAddress = JSON.parse(req.body.body);
-
+    
     // Get Account Balance
     axios.get(OPTIMISM_URL + "?module=account&action=balance&address=" + walletAddress.walletAddress + "&tag=latest&apikey=" + process.env.OPTIMISM_API_KEY)
     .then(response => {  

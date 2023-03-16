@@ -55,22 +55,22 @@ const ERC20TokenHoldingsPage: FC = () => {
                     updateEmptyAlert(false);
                     updateAlert(false);
                     updateTokenHoldings(response.data.holdings);
-                }
-            })
-            .catch(() => {
-                updateAlert(true);
-                updateEmptyAlert(false);
-            });
 
-            axios.post('http://localhost:5001/op-erc20-transfers', options)
-            .then(response => {
-                if (response.data.transfers.result.transfers.length === 0) {
-                    updateEmptyAlert(true);
-                }
-                else {
-                    updateEmptyAlert(false);
-                    updateAlert(false);
-                    updateTokenTransfers(response.data.transfers);
+                    axios.post('http://localhost:5001/op-erc20-transfers', options)
+                    .then(response => {
+                        if (response.data.transfers.result.transfers.length === 0) {
+                            updateEmptyAlert(true);
+                        }
+                        else {
+                            updateEmptyAlert(false);
+                            updateAlert(false);
+                            updateTokenTransfers(response.data.transfers);
+                        }
+                    })
+                    .catch(() => {
+                        updateAlert(true);
+                        updateEmptyAlert(false);
+                    });
                 }
             })
             .catch(() => {
@@ -81,7 +81,7 @@ const ERC20TokenHoldingsPage: FC = () => {
     }
 
     return (
-        <div className="erc-20-token-page">
+        <div className="erc-20-token-page" style={{ textAlign: 'center' }}>
             <main role="main" className="p-3">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h2>ERC-20 Token Holdings</h2>

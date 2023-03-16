@@ -18,8 +18,8 @@ const ERC20TokenHoldingsInfoTable = (props : { data: ERC20HoldingType }) => {
                         data.result.tokenBalances.map((record, key) => {
                             return (
                                 <tr style={{ border: '1px solid black' }}>
-                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.contractAddress }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.tokenBalance }</td>
+                                    <td style={{ border: '1px solid black', padding: '0.5rem', fontSize: '11px' }}>{ record.contractAddress }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.tokenBalance }</td>
                                 </tr>
                             )
                     })}

@@ -18,22 +18,22 @@ const ERC720TransfersInfoTable = (props : { data : ERC20TransferType, address: s
                 </thead>
                 <tbody>
                     { 
-                        data.result.transfers.map((record, key) => {
+                        data.result.transfers.reverse().map((record, key) => {
                             // Display information, format date display
                             let badgeDisplay = address.toLowerCase() === record.to;
                             
                             return (
                                 <tr style={{ border: '1px solid black' }}>
-                                    <td style={{ border: '1px solid black', padding: '0.5rem' }}>{ record.hash }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.from }</td>
-                                    <td style={{ border: '1px solid black' }}>{ record.to }</td>
+                                    <td style={{ border: '1px solid black', padding: '0.5rem', fontSize: '11px' }}>{ record.hash }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.from }</td>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>{ record.to }</td>
                                     { 
                                         address !== null ? 
                                             <td style={{ border: '1px solid black', fontSize: '11px' }}>
                                                 { badgeDisplay ? <Badge type="IN" /> : <Badge type="OUT" /> }
                                             </td> : null 
                                     }
-                                    <td style={{ border: '1px solid black' }}>
+                                    <td style={{ border: '1px solid black', fontSize: '11px' }}>
                                         { record.value }
                                     </td>
                                 </tr>

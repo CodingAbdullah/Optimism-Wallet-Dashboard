@@ -55,22 +55,22 @@ const ERC721TokenHoldingsPage: FC = () => {
                 else {
                     updateEmptyAlert(false);
                     updateERC721HoldingData(response.data.holdings);
-                }
-            })
-            .catch(() => {
-                updateAlert(true);
-                updateEmptyAlert(false);
-            });
-
-            axios.post('http://localhost:5001/op-erc721-transfers', options)
-            .then(response => {
-                // Check to see if length of holdings is equal to 0, if not populate state
-                if (response.data.transfers.result.transfers.length === 0) {
-                    updateEmptyAlert(true);
-                }
-                else {
-                    updateEmptyAlert(false);
-                    updateERC721TransferData(response.data.transfers);
+                   
+                    axios.post('http://localhost:5001/op-erc721-transfers', options)
+                    .then(response => {
+                        // Check to see if length of holdings is equal to 0, if not populate state
+                        if (response.data.transfers.result.transfers.length === 0) {
+                            updateEmptyAlert(true);
+                        }
+                        else {
+                            updateEmptyAlert(false);
+                            updateERC721TransferData(response.data.transfers);
+                        }
+                    })
+                    .catch(() => {
+                        updateAlert(true);
+                        updateEmptyAlert(false);
+                    });
                 }
             })
             .catch(() => {
@@ -81,7 +81,7 @@ const ERC721TokenHoldingsPage: FC = () => {
     }
     
     return (
-        <div className='erc-721-token-holdings-page'>
+        <div className='erc-721-token-holdings-page' style={{ textAlign: 'center' }}>
             <main role="main" className="p-3">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="h2">ERC-721 Token Holdings</h1>

@@ -77,7 +77,7 @@ const WalletAnalyticsResultPage: FC = () => {
         }
         else {
             return (
-                <div className="wallet-analytics-result-page p-3">
+                <div className="wallet-analytics-result-page p-3" style={{ textAlign: 'center' }}>
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 className="h2">Wallet Analytics</h1>
                     </div>

@@ -1,5 +1,6 @@
 require("dotenv").config({ path: '../.env' });
 const COINGECKO_URL = require("../utils/constants").NETWORK_MAPPER.coingecko_url;
+const OPTIMISM_URL = require("../utils/constants").NETWORK_MAPPER.optimism_url
 const axios = require('axios');
 const hex2dec = require('hex2dec');
 
@@ -10,11 +11,7 @@ exports.getOptimismPriceInformation = (req, res) => {
 
     axios.get(COINGECKO_URL + API_ENDPOINT + QUERY_STRING_OPTIMISM)
     .then(response => {
-
-        const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
-        delay();
-
-        axios.get(NETWORK_MAPPER.optimism_url + OPTIMISM_GAS_URL)
+        axios.get(OPTIMISM_URL + OPTIMISM_GAS_URL)
         .then(gasInfo => {
             let gasValueInDec = (hex2dec.hexToDec(gasInfo.data.result))/1000000000; // Value given in WEI Hex value so, conversion to Dec value and to WEI is done
             gasInfo.data.result = gasValueInDec;
@@ -26,6 +23,7 @@ exports.getOptimismPriceInformation = (req, res) => {
             });
         })
         .catch(err => {
+            console.log(err);
             // Send back error
             res.status(400).json({
                 error: err
@@ -34,6 +32,7 @@ exports.getOptimismPriceInformation = (req, res) => {
     })
     .catch(err => {
         // Send back error
+        console.log(err);
         res.status(400).json({
             error: err
         });
@@ -47,10 +46,7 @@ exports.getOptimismHistoricalPriceInformation = (req, res) => {
     let duration = day == '1' ? 'hourly' : 'daily';
 
     const QUERY_STRING_PRICES = "?vs_currency=usd&days=" + day; // Default selection for now.
-    const PRICE_ENDPOINT = "/coins/optimism/market_chart" + QUERY_STRING_PRICES + "&interval=" + duration;
-
-    const delay = (ms = 2000) => new Promise((r) => setTimeout(r, ms)); // Set timeout for coin price display
-    delay();
+    const PRICE_ENDPOINT = "coins/optimism/market_chart" + QUERY_STRING_PRICES + "&interval=" + duration;
 
     // Gather data related to token price, 24 hr change and the price range selected by user    
     axios.get(COINGECKO_URL + PRICE_ENDPOINT)

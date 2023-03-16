@@ -8,7 +8,7 @@ exports.getERC721Holdings = (req, res) => {
     // Pass in options making sure of the axios library and the Alchemy endpoint
     const options = {
         method: 'GET',
-        url: ALCHEMY_URL + 'nft/v2/' + process.env.ALCHEMY_API_KEY + '/getNFTs?owner=' + walletAddress + '&withMetadata=true&pageSize=100',
+        url: ALCHEMY_URL + '/nft/v2/' + process.env.ALCHEMY_API_KEY + '/getNFTs?owner=' + walletAddress + '&withMetadata=true&pageSize=100',
         headers: {
             accept: 'application/json',
             'content-type': 'application/json'
