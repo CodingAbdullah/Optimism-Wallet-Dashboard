@@ -9,7 +9,7 @@ const GasPricePage: FC = () => {
     const [gasState, updateGasState] = useState<GasPriceType>();
 
     useEffect(() => {
-        axios.get("http://localhost:5001/op-gas-tracker")
+        axios.get("https://18.221.208.44.nip.io/op-gas-tracker")
         .then(response => {
             // Retrieve gas information
             updateGasState(response.data);

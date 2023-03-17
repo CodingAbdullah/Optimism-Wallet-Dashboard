@@ -45,7 +45,7 @@ const ERC20TokenHoldingsPage: FC = () => {
             updateAlert(false);
 
             // Make requests for ERC20 holdings and transfers
-            axios.post('http://localhost:5001/op-erc20-holdings', options)
+            axios.post('https://18.221.208.44.nip.io/op-erc20-holdings', options)
             .then(response => {
                 if (response.data.holdings.result.tokenBalances[0].contractAddress === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' 
                     && response.data.holdings.result.tokenBalances[0].contractAddress === '0x0000000000000000000000000000000000000000000000000000000000000000') {
@@ -56,7 +56,7 @@ const ERC20TokenHoldingsPage: FC = () => {
                     updateAlert(false);
                     updateTokenHoldings(response.data.holdings);
 
-                    axios.post('http://localhost:5001/op-erc20-transfers', options)
+                    axios.post('https://18.221.208.44.nip.io/op-erc20-transfers', options)
                     .then(response => {
                         if (response.data.transfers.result.transfers.length === 0) {
                             updateEmptyAlert(true);

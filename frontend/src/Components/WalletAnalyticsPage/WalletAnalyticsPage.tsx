@@ -57,7 +57,7 @@ const WalletTokenAnalyticsPage: FC = () => {
             }
 
             // Requesting list of transactions
-            axios.post("http://localhost:5001/op-transactions", options)
+            axios.post("https://18.221.208.44.nip.io/op-transactions", options)
             .then(response => {
                 if (response.data.txns.result.length === 0) {
                     updateEmptyAlert(true);
@@ -71,7 +71,7 @@ const WalletTokenAnalyticsPage: FC = () => {
             });
 
             // Request list of internal transactions
-            axios.post("http://localhost:5001/op-internal-transactions", options)
+            axios.post("https://18.221.208.44.nip.io/op-internal-transactions", options)
             .then(response => {
                 if (response.data.txns.result.length === 0) {
                     updateEmptyAlert(true);
@@ -85,7 +85,7 @@ const WalletTokenAnalyticsPage: FC = () => {
             });
 
             // Get Eth price along with wallet balance information
-            axios.post('http://localhost:5001/op-wallet-balance', options)
+            axios.post('https://18.221.208.44.nip.io/op-wallet-balance', options)
             .then(response => {
                 updateWalletBalanceInformationState(response.data);  
             });
