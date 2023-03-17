@@ -12,12 +12,12 @@ import WalletBalanceSection from '../WalletBalanceSection/WalletBalanceSection';
 const WalletAnalyticsResultPage: FC = () => {
     const navigate = useNavigate();
     const [emptyAlert, updateEmptyAlert] = useState<boolean>(false);
+    let addr = localStorage.getItem('walletAddress') === null ? "" : localStorage.getItem('walletAddress');
+    const [address, updateAddress] = useState<string>(addr!);
 
     const [walletTransactionState, updateWalletTransactionState] = useState<WalletTransactionType>();
     const [walletInternalTransactionState, updateWalletInternalTransactionState] = useState<WalletInternalTransactionType>();
     const [walletBalanceInformationState, updateWalletBalanceInformationState] = useState<WalletBalanceType>();
-
-    let address = localStorage.getItem('walletAddress') === null ? "" : localStorage.getItem('walletAddress');
 
     useEffect(() => {
         if (address === null || address.length !== 42 || address.substring(0, 2) !== '0x'){
@@ -43,31 +43,30 @@ const WalletAnalyticsResultPage: FC = () => {
                     updateEmptyAlert(false);
                     updateWalletTransactionState(response.data.txns);
 
+                    // Update internal transactions state with internal txns request
+                    axios.post('http://localhost:5001/op-internal-transactions', options)
+                    .then(response => {
+                        if (response.data.txns.result.length === 0) {
+                            updateEmptyAlert(true);
+                        }
+                        else {
+                            updateEmptyAlert(false);
+                            updateWalletInternalTransactionState(response.data.txns);
+
+                            // Get ETH price along with wallet balance information
+                            axios.post('http://localhost:5001/op-wallet-balance', options)
+                            .then(response => {
+                                updateWalletBalanceInformationState(response.data);  
+                            });
+                        }
+                    })
+                    .catch(() => {
+                        updateEmptyAlert(true);
+                    });
                 }
             })
             .catch(() => {
                 updateEmptyAlert(true);
-            });
-
-            // Update internal transactions state with internal txns request
-            axios.post('http://localhost:5001/op-internal-transactions', options)
-            .then(response => {
-                if (response.data.txns.result.length === 0) {
-                    updateEmptyAlert(true);
-                }
-                else {
-                    updateEmptyAlert(false);
-                    updateWalletInternalTransactionState(response.data.txns);
-                }
-            })
-            .catch(() => {
-                updateEmptyAlert(true);
-            });
-
-            // Get ETH price along with wallet balance information
-            axios.post('http://localhost:5001/op-wallet-balance', options)
-            .then(response => {
-                updateWalletBalanceInformationState(response.data);  
             });
         }
     }, []);
