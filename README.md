@@ -33,7 +33,12 @@ No API keys means failed requests to select API resources.
 <br />
 
 ## `Dockerfile`
-Attached to the root directory of this project, is a `Dockerfile`. Essentially, allowing users to containerize the frontend application and generate an image to run the application in isolated containers using this particular file.
+Attached within the server folders are Dockerfiles needed to Dockerize the servers and run as standalone containers. This will essentially, allow users to containerize the applications by generating an image to represent the servers and run them as containers.
+ 
+<br />
+
+## `Scripts`
+For basic project setup, scripts for each operating system (MAC/WINDOWS) have been provided as bash, powershell scripts respectively.
 
 <br />
 
