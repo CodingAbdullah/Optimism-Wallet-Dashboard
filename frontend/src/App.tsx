@@ -10,6 +10,7 @@ import GasPricePage from './Components/GasPricePage/GasPricePage';
 import OpPriceLookupPage from './Components/OpPriceLookupPage/OpPriceLookupPage';
 import WalletTokenAnalyticsPage from './Components/WalletAnalyticsPage/WalletAnalyticsPage';
 import WalletAnalyticsResultPage from './Components/WalletAnalyticsResultPage/WalletAnalyticsResultPage';
+import Page404 from './Components/Page404/Page404';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/op-price-lookup" element={<OpPriceLookupPage />}></Route>
           <Route path="/wallet-analytics" element={<WalletTokenAnalyticsPage />}></Route>
           <Route path="/wallet-analytics-result" element={<WalletAnalyticsResultPage />}></Route>
+          <Route path="*" element={<Page404 />}></Route>
           <Route path="/" element={<HomePage />}></Route>
         </Routes>
       </Router>
