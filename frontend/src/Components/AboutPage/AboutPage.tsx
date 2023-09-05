@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
     
     // Adding About page
     return (
-        <div className='about p-3' style={{ textAlign: 'center' }}>
+        <div className='about p-3'>
                 <main role="main">
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 className="h2 p-2">About</h1>
@@ -18,6 +18,18 @@ const AboutPage: React.FC = () => {
                                 <a href="https://ethwdashboard.xyz" style={{ color: 'black', fontWeight: 'bold' }} target="_blank" rel="noreferrer"> Dashboard</a>. 
                                 Features available here include token lookups, wallet analysis, and gas prices.
                             </p>
+                    </div>
+                    <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4 className="p-2">Open Source Code</h4>
+                            <hr />
+                    </div>
+                    <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <p className="p-1">
+                                All the code required to make this web application possible is open source and available for all. 
+                                This was done to ensure safety and allow anyone to verify the application for themselves prior to usage.
+                                Link to the code repository is <b><a style={{ color: 'black' }} href="https://github.com/CodingAbdullah/Optimism-Wallet-Dashboard">here</a>.</b>
+                            </p>
+                            <hr />
                     </div>
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h4 className="p-2">Credits</h4>
@@ -37,7 +49,7 @@ const AboutPage: React.FC = () => {
                     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <p className="p-1">
                                 If you are interested in learning more about the developer behind this project, you can visit their bio here:
-                                <a style={{ color: 'black' }} href="https://kingabdul.eth.xyz/" target="_blank" rel="noreferrer"> <b>About The Developer</b></a>
+                                <a style={{ color: 'black' }} href="https://kingabdullah.codes" target="_blank" rel="noreferrer"> <b>About The Developer</b></a>
                             </p>
                     </div>
                     <div>
