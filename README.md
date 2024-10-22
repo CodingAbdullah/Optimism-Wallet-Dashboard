@@ -1,7 +1,43 @@
 # Optimism-Wallet-Dashboard
-A descriptive web app, detailing the history of all transactions including all different kinds of ERC transactions.
+A descriptive web app, detailing the history of all transactions including all different kinds of ERC transactions for the Optimism L2 Blockchain.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This is a <b>minified</b> version of the original [Dashboard](https://ethwdashboard.xyz) and will be linked to it.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This is a <b>minified</b> version of the original Ethereum [Dashboard](https://ethereumdashboard.dev) and will be linked to it.
+
+<br />
+
+### `Links`
+
+Here are links to the available API resources used in this project:
+<table>
+    <tr>
+        <th>API Name</th>
+        <th>API Link</th>
+    </tr>
+    <tr>
+        <td>
+            <b>Alchemy</b>
+        </td>
+        <td>
+            <a href="https://docs.alchemy.com/reference/api-overview">Alchemy Developer Docs</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>CoinGecko</b>
+        </td>
+        <td>
+            <a href="https://www.coingecko.com">Arbiscan APIs</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Optimism-Etherscan</b>
+        </td>
+        <td>
+            <a href="https://optimistic.etherscan.io">Optimistic Etherscan</a>
+        </td>
+    </tr>
+</table>
 
 <br />
 
@@ -10,11 +46,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The link to the deployed site is here: [AWS Amplify](https://optimism-aws.d22w7ozmz21la.amplifyapp.com/). Note that the backend endpoints were served using the same EC2 instance used to serve the backend endpoints for the main Dashboard project.
 
 This was done for cost-effectiveness and efficiency. One server holding all the endpoints.
-
-<br />
-
-### `Features`
-**Most of the features supported on the Arbitrum Network are also supported here as well, except for ERC-721 Lookups.**
 
 <br />
 
@@ -39,42 +70,6 @@ Attached within the server folders are Dockerfiles needed to Dockerize the serve
 
 ## `Scripts`
 For basic project setup, scripts for each operating system (MAC/WINDOWS) have been provided as bash, powershell scripts respectively.
-
-<br />
-
-### `Links`
-
-Here are links to the available API resources used in this project. NOTE: Opensea API resources are NOT available at this time as they are not issuing API keys. Hence, an alternate platform, Alchemy will be used instead.
-
-
-[Alchemy](https://docs.alchemy.com/reference/api-overview)
-[Coingecko](https://www.coingecko.com)
-[Optimism-Etherscan](https://optimistic.etherscan.io/)
-
-<br />
-
-
-## Front End Resources
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
