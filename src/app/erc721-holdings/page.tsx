@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 // Custom Metadata for SEO
 export const metadata: Metadata = {
-    title: "Ethereum ERC721 Holdings",
+    title: "Optimism ERC721 Holdings",
     description: "Analyze Ethereum wallet ERC721 token holdings"
 }
 
