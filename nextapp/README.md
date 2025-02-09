@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Optimism Dashboard
 
-## Getting Started
+### Live Optimism Wallet Dashboard for Blockchain Analytics
+Explore your Optimism wallet with an all-in-one dashboard built using **Next.js** and hosted cost-free on **Vercel**. 
 
-First, run the development server:
+[Optimism Dashboard](https://optimismdashboard.xyz/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Wallet & Asset Analytics
+- **ERC20/721 Holdings:** View all tokens and NFTs in your wallet.  
+- **Transactions:** Analyze your complete transaction history.  
+- **Wallet Analytics:** Get in-depth metrics on wallet performance.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Market Data & Pricing
+- **Optimism Price Tracking:** Live price updates for Optimism.  
 
-## Learn More
+### Optimism Tools
+- **Optimism Gas Tracker:** Monitor gas prices in real time.  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔌 APIs and Integrations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Core APIs 
+- **Alchemy:**: Fetch data related to ERC20 and ERC721 tokens.
+- **CoinGecko:** Fetch live market data related to Optimism.  
+- **Moralis:** Multi-chain support for NFTs and tokens.  
 
-## Deploy on Vercel
+### Utility APIs
+- **Optimistic Etherscan:** Transaction details and blockchain explorer integration.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Built With
+
+- **Next.js:** Next-generation React.js framework for seamless server-side rendering and static site generation.  
+- **Shadcn/UI:** Component library for rapid development.
+- **Lucide-React/Font-Awesome:** Icon Libraries for rapid development.
+- **V0.dev:** AI-powered application for rapidly prototyping and building Next.js applications.
+- **Tailwind CSS:** For modern, responsive UI designs.
+- **Node.js:** Backend integrations with APIs.
+- **Vercel Hosting:** Application is deployed cost-free using Vercel.
+
+---
+
+## 🌐 Deployment
+
+- **Domain:** [Optimism Dashboard](https://optimismdashboard.xyz/)  
+- **Hosting:** Deployed cost-free on **Vercel**, leveraging its robust serverless capabilities.  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **Node.js** and **npm** installed.  
+- API keys for Alchemy, CoinGecko, Moralis, and Optimistic Etherscan.  
+
+### Installation
+1. Clone the repository and run <code>npm install</code> to add in the necessary dependencies:  
+   ```bash  
+   git clone https://github.com/CodingAbdullah/Optimism-Wallet-Dashboard.git 
+   npm install
+
+2. Add in your <b>API secrets</b> in a <code>.env</code> file located in the root of the project:  
+   ```bash  
+    ARBISCAN_API_KEY=''
+    COINGECKO_API_KEY=''
+    MORALIS_API_KEY=''
+    OPTIMISM_API_KEY=''
+    PORT=''
+
+3. Run the local development environment:
+    ```bash
+    npm run dev
