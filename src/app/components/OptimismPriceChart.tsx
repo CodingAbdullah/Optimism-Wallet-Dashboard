@@ -5,8 +5,8 @@ import useSWR from 'swr';
 import GenericFetcher from '../utils/functions/GenericFetcher';
 import PostFetcher from '../utils/functions/PostFetcher';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import NavbarOptimismDataType from '../utils/types/NavbarOptimismDataType';
 import PostFetcherArgumentsType from '../utils/types/PostFetcherArgs';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import useSWR from "swr";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import GenericFetcher from "../utils/functions/GenericFetcher";
 import OptimismGasDataType from "../utils/types/OptimismGasDataType";
 

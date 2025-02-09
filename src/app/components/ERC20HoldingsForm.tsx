@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card";
-import { Alert, AlertDescription } from "../components/ui/alert";
+import { Alert, AlertDescription } from "./ui/alert";
 import addressValidator from "../utils/functions/addressValidator";
 import ERC20TransfersInfoTable from "./ERC20TransfersInfoTable";
 import ERC20HoldingsInfoTable from "./ERC20HoldingsInfoTable";

@@ -1,7 +1,7 @@
 'use client';
 
 import ERC20HoldingsType from "../utils/types/ERC20HoldingsType";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
 // Pass in the array of objects of type ERC20 Holdings to the data properties of the prop object
 export default function ERC20HoldingsInfoTable(props : { data: ERC20HoldingsType }) {

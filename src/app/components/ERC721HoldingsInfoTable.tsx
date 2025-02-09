@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import ERC721HoldingsType  from "../utils/types/ERC721HoldingsType";
 
 // Pass in the array of objects of type ERC721 Holdings to the data properties of the prop object

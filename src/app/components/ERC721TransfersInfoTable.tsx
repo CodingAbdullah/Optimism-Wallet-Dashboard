@@ -1,6 +1,6 @@
 'use client';
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import ERC721TransfersType  from "../utils/types/ERC721TransfersType";
 
 // Pass in the array of objects of type ERC721 Transfers to the data properties of the prop object

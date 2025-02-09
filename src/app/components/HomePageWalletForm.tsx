@@ -3,8 +3,8 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import addressValidator from '../utils/functions/addressValidator';
-import { Input } from '../components/ui/input';
-import { Button } from '../components/ui/button';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 // Custom Component for working with the Home Page Wallet Form
 export default function HomePageWalletForm() {
