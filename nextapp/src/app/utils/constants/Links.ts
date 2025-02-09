@@ -4,7 +4,7 @@ import LinkType from "../types/LinkType";
 export const Links: LinkType[] = [
     { name: 'Optimistic Etherscan', href: 'https://docs.optimism.etherscan.io/' },
     { name: 'CoinGecko', href: 'https://www.coingecko.com/' },
-    { name: 'Moralis', href: 'https://developers.moralis.com/' },
+    { name: 'Alchemy', href: 'https://docs.alchemy.com/' },
     { name: 'Twitter', href: 'https://twitter.com/KA95doteth' },
     { name: 'GitHub', href: 'https://github.com/CodingAbdullah' }
 ];
