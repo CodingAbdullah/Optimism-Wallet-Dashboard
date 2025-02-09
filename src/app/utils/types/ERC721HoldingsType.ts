@@ -21,7 +21,6 @@ export default interface ERC721HoldingsType {
             gateway: string,
             raw: string
         }[],
-        metadata: {},
         timeLastUpdated: string,
         contractMetadata : {
             name: string,

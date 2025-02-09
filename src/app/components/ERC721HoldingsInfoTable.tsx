@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import ERC721HoldingsType  from "../utils/types/ERC721HoldingsType";
 
